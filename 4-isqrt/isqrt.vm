@@ -1,3 +1,24 @@
-function isqrt 2
+function isqrt 2          // Define a função isqrt com 2 variáveis locais
+push constant 0
+pop local 0               // Inicializa local 0 como o candidato para a raiz (começa em 0)
 
+label loop
+push local 0
+push local 0
+call mult 2               // Calcula local 0 * local 0
+push argument 0
+gt                        // Verifica se local 0 * local 0 > n
+if-goto end               // Se for, termina o loop
 
+push local 0
+push constant 1
+add
+pop local 0               // Incrementa o candidato para a raiz
+
+goto loop
+
+label end
+push local 0
+push constant 1
+sub
+return

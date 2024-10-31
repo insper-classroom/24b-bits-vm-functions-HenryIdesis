@@ -1,2 +1,27 @@
-// implemente a funcao mult que recebe dois argumentos
-// e retorna a multiplicacao
+function mult 2          // Define a função mult com 2 variáveis locais
+push constant 0
+pop local 0              // local 0 será usado para acumular o resultado (inicia em 0)
+push argument 1
+pop local 1              // local 1 será usado como contador, inicializado com o valor de argument 1 (multiplicador)
+
+label loop
+push local 1
+push constant 0
+eq
+if-goto end              // Se o contador for zero, sai do loop
+
+push local 0
+push argument 0
+add
+pop local 0              // Soma o multiplicando ao acumulador
+
+push local 1
+push constant 1
+sub
+pop local 1              // Decrementa o contador
+
+goto loop
+
+label end
+push local 0             // Empilha o resultado final (produto)
+return

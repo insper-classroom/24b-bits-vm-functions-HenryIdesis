@@ -1,0 +1,25 @@
+function div 2          // Define a função div com 2 variáveis locais
+push constant 0
+pop local 0             // local 0 será usado para o quociente (inicia em 0)
+
+label loop
+push argument 0         // Empilha o dividendo
+push argument 1         // Empilha o divisor
+lt
+if-goto end             // Se o dividendo for menor que o divisor, sai do loop
+
+push argument 0
+push argument 1
+sub
+pop argument 0          // Subtrai o divisor do dividendo
+
+push local 0
+push constant 1
+add
+pop local 0             // Incrementa o quociente
+
+goto loop
+
+label end
+push local 0            // Empilha o quociente (resultado da divisão)
+return
